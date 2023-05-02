@@ -110,3 +110,6 @@ Use `genetic_correlation_plot_gcta.R` to
 - Combine `cor_gemma` and `cor_gcta` in the lower and upper triangular parts of the matrix for comparison using `genetic_correlation_plot_gcta.R`. 
 
 
+#### References
+- Xiang Zhou and Matthew Stephens (2014). [Efficient multivariate linear mixed model algorithms for genome-wide association studies](https://www.nature.com/articles/nmeth.2848). *Nature Methods* **11**, 407–409.
+- Jian Yang, S. Hong Lee, Michael E. Goddard, Peter M.Visscher (2011). [GCTA: A Tool for Genome-wide Complex Trait Analysis](https://www.sciencedirect.com/science/article/pii/S0002929710005987?via%3Dihub). *AJHG* **88**, 76-82
