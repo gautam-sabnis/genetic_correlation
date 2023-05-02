@@ -1,0 +1,22 @@
+Bootstrap: docker
+from: ubuntu:jammy-20221101
+
+%setup
+    mkdir -p ${SINGULARITY_ROOTFS}/gcta
+
+%post
+    apt-get update
+    apt-get install -y curl wget tar
+    apt-get install -y unzip cmake make
+    curl -L https://yanglab.westlake.edu.cn/software/gcta/bin/gcta-1.94.1-linux-kernel-3-x86_64.zip > ${SINGULARITY_ROOTFS}/gcta/gcta.zip
+    unzip ${SINGULARITY_ROOTFS}/gcta/gcta.zip -d ${SINGULARITY_ROOTFS}/gcta
+    #chmod u+x /usr/local/bin/gcta-1.94.1-linux-kernel-3-x86_64/gcta-1.94.1
+    cd ${SINGULARITY_ROOTFS}/gcta
+    #mkdir build
+    #cd build
+    #cmake ..
+    #make
+
+%environment
+    export PATH=$PATH:/gcta/gcta-1.94.1-linux-kernel-3-x86_64/
+    alias gcta64="./gcta-1.94.1"

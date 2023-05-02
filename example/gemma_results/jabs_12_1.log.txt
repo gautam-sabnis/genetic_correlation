@@ -1,0 +1,61 @@
+##
+## GEMMA Version    = 0.98.5 (2021-08-25)
+## Build profile    = /gnu/store/8rvid272yb53bgascf5c468z0jhsyflj-profile
+## GCC version      = 7.5.0
+## GSL Version      = 2.6
+## OpenBlas         = OpenBLAS 0.3.9  - OpenBLAS 0.3.9 DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=128
+##   arch           = SkylakeX
+##   threads        = 1
+##   parallel type  = threaded
+##
+## Command Line Input = gemma -g /projects/kumar-lab/sabnig/GWAS/geno_jabs_2023-04-30.txt.gz -p /projects/kumar-lab/sabnig/GWAS/pheno_jabs_2023-04-30.txt -n 12 1 -a /projects/kumar-lab/sabnig/GWAS/anno_jabs_2023-04-30.txt -k /projects/kumar-lab/sabnig/GWAS/output/jabs_relatednessmat.cXX.txt -lmm -o jabs_12_1 
+##
+## Date = Sun Apr 30 13:31:56 2023
+##
+## Summary Statistics:
+## number of total individuals = 954
+## number of analyzed individuals = 954
+## number of covariates = 1
+## number of phenotypes = 2
+## number of total SNPs/var = 211083
+## number of analyzed SNPs/var = 211083
+## REMLE log-likelihood in the null model = -2288.86
+## MLE log-likelihood in the null model = -2290.15
+## REMLE estimate for Vg in the null model: 
+0.37274
+0.110589	0.943487
+## se(Vg): 
+0.111533
+0.115232	0.236465
+## REMLE estimate for Ve in the null model: 
+0.887811
+-0.0745961	0.389316
+## se(Ve): 
+0.041601
+0.0196434	0.0182767
+## MLE estimate for Vg in the null model: 
+0.372891	0.110569
+0.110569	0.943681
+## se(Vg): 
+0.11153
+0.115242	0.236511
+## MLE estimate for Ve in the null model: 
+0.886838	-0.0745132
+-0.0745132	0.388888
+## se(Ve): 
+0.0415331
+0.0196113	0.0182468
+## estimate for B (d by c) in the null model (columns correspond to the covariates provided in the file): 
+-0.00369214
+0.00872557
+## se(B): 
+0.0305061
+0.0202012
+##
+## Computation Time:
+## total computation time = 20.1469 min 
+## computation time break down: 
+##      time on eigen-decomposition = 0.00194068 min 
+##      time on calculating UtX = 0.0853252 min 
+##      time on optimization = 19.5089 min 
+##
