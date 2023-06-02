@@ -8,7 +8,7 @@
 
 #Example
 anno=anno_jabs_2023-04-30.txt
-geno=geno_jabs_2023-04-30.txt.gz
+geno=geno_jabs_2023-04-30.txt
 pheno=pheno_jabs_2023-04-30.txt
 
 module load singularity
