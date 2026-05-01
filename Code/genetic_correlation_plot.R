@@ -11,7 +11,7 @@ names(ind) <- c("x", "y")
 #Make sure all the correlations have been computed 
 for (index in seq(nrow(ind))){
 	tryCatch( 
-		expr = { f <- read.delim(paste0("example/gemma_results/jabs_", ind[index,]$x, "_", ind[index,]$y, ".log.txt"))
+		expr = { f <- read.delim(paste0("bxd_jabs_", ind[index,]$x, "_", ind[index,]$y, ".log.txt"))
 			}, 
 		error = function(e) {
 		message("File missing!")
@@ -19,22 +19,27 @@ for (index in seq(nrow(ind))){
 	})
 }
 
-#Parse the files & extract the covariances
-cor <- matrix(0, 12, 12)
+#Parse the files & extract the genetic correlations
+cor <- matrix(0, 15, 15)
 for (index in seq(nrow(ind))){
 	if (index %in% c()){
 		next
 	}
 	cat("Index: x, y = ", ind[index,]$x, ",", ind[index,]$y, "\n")
-	f <- read.delim(paste0("example/gemma_results/jabs_", ind[index,]$x, "_", ind[index,]$y, ".log.txt"))$X..
+	f <- readLines(paste0("example/gemma_results/jabs_", ind[index,]$x, "_", ind[index,]$y, ".log.txt"))
 	line <- grep("## REMLE estimate for Vg in the null model", f)
-	cor[ind[index,]$x, ind[index,]$y] <- as.numeric(f[line + 2])	
-	cor[ind[index,]$y, ind[index,]$x] <- as.numeric(f[line + 2])
+	vg11 <- as.numeric(trimws(f[line + 1]))
+	vg_row2 <- as.numeric(strsplit(trimws(f[line + 2]), "\\s+")[[1]])
+	vg21 <- vg_row2[1]
+	vg22 <- vg_row2[2]
+	rg <- vg21 / sqrt(vg11 * vg22)
+	cor[ind[index,]$x, ind[index,]$y] <- rg
+	cor[ind[index,]$y, ind[index,]$x] <- rg
 }
 
 
-cor[cor > 1] <- 1
-diag(cor) <- rep(1,12)
+#cor[cor > 1] <- 1
+#diag(cor) <- rep(1,15)
 
 colnames(cor) <- features
 rownames(cor) <- features
